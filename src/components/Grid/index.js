@@ -3,12 +3,6 @@ import React from 'react';
 // Styles
 import {Wrapper, Content} from './Grid.styles';
 
-
-/* 
-    when we nest things inside a component
-    those things will be accessible by the parent's
-    children prop 
-*/
 const Grid = ({header, children}) => (
     <Wrapper>
         <h1>{header}</h1>
