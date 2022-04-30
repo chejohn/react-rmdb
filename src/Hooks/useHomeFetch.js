@@ -23,7 +23,6 @@ export const useHomeFetch = () => {
         setLoading(true);
 
         const movies = await API.fetchMovies(searchTerm, page);
-
         setState((prev) => ({
           ...movies,
           results:
