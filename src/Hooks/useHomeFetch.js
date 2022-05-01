@@ -22,7 +22,8 @@ export const useHomeFetch = () => {
         setError(false);
         setLoading(true);
 
-        const movies = await API.fetchMovies(searchTerm, page);
+        let movies = await API.fetchMovies(searchTerm, page);
+        movies = movies.data;
         setState((prev) => ({
           ...movies,
           results:

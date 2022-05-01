@@ -8,6 +8,8 @@ import {
   SESSION_ID_URL
 } from './config';
 
+import axios from 'axios';
+
 const defaultConfig = {
   method: 'POST',
   headers: {
@@ -17,18 +19,14 @@ const defaultConfig = {
 
 const apiSettings = {
   fetchMovies: async (searchTerm, page) => {
-    const endpoint = searchTerm
-      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
-      : `${POPULAR_BASE_URL}&page=${page}`;
-    return await (await fetch(endpoint)).json();
+    return await axios.get(`/.netlify/functions/fetchMovies?searchTerm=${searchTerm}&page=${page}`);
   },
   fetchMovie: async movieId => {
-    const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
-    return await (await fetch(endpoint)).json();
+    return await axios.get(`/.netlify/functions/fetchMovie?movieId=${movieId}`);
   },
   fetchCredits: async movieId => {
     const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
-    return await (await fetch(creditsEndpoint)).json();
+    return await axios.get(`/.netlify/functions/fetchCredits?movieId=${movieId}`);
   },
   // Bonus material below for login
   getRequestToken: async () => {
