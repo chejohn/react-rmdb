@@ -8,3 +8,7 @@ User can search for any movie and its information (i.e. budget, revenue, about, 
 * React Styled Components
 * Array.prototype.map()
 * .env and .config files
+
+# Link To Site
+
+https://react-movie-db-cj.netlify.app/
